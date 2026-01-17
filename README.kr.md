@@ -38,13 +38,13 @@ cp .env.example .env
 
 `.env` 파일 편집:
 ```
-PORT=8000
+PORT=5000
 HOST=0.0.0.0
 DEFAULT_PROVIDER=claude
 ```
 
 **설정 옵션:**
-- `PORT`: API 서버 포트 (기본값: 8000)
+- `PORT`: API 서버 포트 (기본값: 5000)
 - `HOST`: API 서버 호스트 (기본값: 0.0.0.0)
 - `DEFAULT_PROVIDER`: 기본 프로바이더 (기본값: claude)
 
@@ -55,9 +55,9 @@ python main.py
 ```
 
 서버가 시작되면:
-- API 문서: http://localhost:8000/docs
-- 웹 UI: http://localhost:8000
-- 프로바이더 상태: http://localhost:8000/api/providers
+- API 문서: http://localhost:5000/docs
+- 웹 UI: http://localhost:5000
+- 프로바이더 상태: http://localhost:5000/api/providers
 
 ## 웹 UI 기능
 
@@ -163,28 +163,28 @@ python main.py
 
 **Claude 프로바이더 사용:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "claude", "prompt": "Python이 뭐야?"}'
 ```
 
 **Gemini 프로바이더 사용:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "gemini", "prompt": "JavaScript가 뭐야?"}'
 ```
 
 **Codex 프로바이더 사용:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "codex", "prompt": "REST API 설명"}'
 ```
 
 **사용 가능한 프로바이더 확인:**
 ```bash
-curl "http://localhost:8000/api/providers"
+curl "http://localhost:5000/api/providers"
 ```
 
 ## CLI 클라이언트
@@ -214,15 +214,15 @@ python examples/cli_example.py -i --provider gemini
 
 ```bash
 # Windows CMD
-set API_URL=http://localhost:8000
+set API_URL=http://localhost:5000
 python examples/cli_example.py "질문"
 
 # Windows PowerShell
-$env:API_URL="http://localhost:8000"
+$env:API_URL="http://localhost:5000"
 python examples/cli_example.py "질문"
 
 # Linux/Mac
-export API_URL=http://localhost:8000
+export API_URL=http://localhost:5000
 python examples/cli_example.py "질문"
 ```
 

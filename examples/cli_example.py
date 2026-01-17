@@ -15,7 +15,7 @@ import sys
 import json
 import os
 
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+API_URL = os.getenv("API_URL", "http://localhost:5000")
 
 
 def list_providers() -> bool:

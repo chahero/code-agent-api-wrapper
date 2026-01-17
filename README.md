@@ -38,13 +38,13 @@ cp .env.example .env
 
 Edit `.env`:
 ```
-PORT=8000
+PORT=5000
 HOST=0.0.0.0
 DEFAULT_PROVIDER=claude
 ```
 
 **Configuration Options:**
-- `PORT`: API server port (default: 8000)
+- `PORT`: API server port (default: 5000)
 - `HOST`: API server host (default: 0.0.0.0)
 - `DEFAULT_PROVIDER`: Default provider when not specified (default: claude)
 
@@ -55,9 +55,9 @@ python main.py
 ```
 
 Once the server starts:
-- API Documentation: http://localhost:8000/docs
-- Web UI: http://localhost:8000
-- Provider Status: http://localhost:8000/api/providers
+- API Documentation: http://localhost:5000/docs
+- Web UI: http://localhost:5000
+- Provider Status: http://localhost:5000/api/providers
 
 ## Web UI Features
 
@@ -161,28 +161,28 @@ Automatically uses `DEFAULT_PROVIDER` configuration.
 
 **Using Claude provider:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "claude", "prompt": "What is Python?"}'
 ```
 
 **Using Gemini provider:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "gemini", "prompt": "What is JavaScript?"}'
 ```
 
 **Using Codex provider:**
 ```bash
-curl -X POST "http://localhost:8000/api/ask" \
+curl -X POST "http://localhost:5000/api/ask" \
   -H "Content-Type: application/json" \
   -d '{"provider": "codex", "prompt": "Explain REST API"}'
 ```
 
 **List available providers:**
 ```bash
-curl "http://localhost:8000/api/providers"
+curl "http://localhost:5000/api/providers"
 ```
 
 ## CLI Client
