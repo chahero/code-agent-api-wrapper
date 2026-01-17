@@ -1,6 +1,7 @@
 """Multi-provider CLI API wrapper using FastAPI."""
 
 import os
+import asyncio
 from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -82,15 +83,21 @@ async def list_providers():
     Returns:
         ProvidersListResponse with list of provider info
     """
-    providers_info = []
+    # Check all providers in parallel for faster response
+    tasks = [
+        provider.check_availability()
+        for name, provider in registry.list_all().items()
+    ]
+    statuses = await asyncio.gather(*tasks)
 
-    for name, provider in registry.list_all().items():
-        status = await provider.check_availability()
-        providers_info.append(ProviderInfo(
+    providers_info = [
+        ProviderInfo(
             name=provider.name,
             display_name=provider.display_name,
             **status
-        ))
+        )
+        for (name, provider), status in zip(registry.list_all().items(), statuses)
+    ]
 
     return ProvidersListResponse(providers=providers_info)
 

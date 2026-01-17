@@ -59,7 +59,7 @@ start() {
         fi
     fi
 
-    print_info "Starting Claude Code API Wrapper..."
+    print_info "Starting Code Agent API Wrapper..."
     # Start app in background with nohup
     nohup python $APP_FILE > $LOG_FILE 2> $ERROR_LOG &
 
@@ -166,7 +166,7 @@ clean() {
 # Print usage information
 usage() {
     cat << EOF
-Claude Code API Wrapper Management Script
+Code Agent API Wrapper Management Script
 
 Usage: ./manage.sh [COMMAND]
 
