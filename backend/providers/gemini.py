@@ -31,7 +31,7 @@ class GeminiProvider(CLIProvider):
         This method:
         1. Escapes the prompt string properly
         2. Passes prompt directly to gemini command
-        3. Returns parsed response
+        3. Returns parsed response (note: Gemini can be slow, typically 15-30 seconds)
         """
         start_time = time.time()
 

@@ -28,11 +28,11 @@ class CodexProvider(CLIProvider):
         working_directory: Optional[str] = None
     ) -> Dict[str, Any]:
         """
-        Execute Codex CLI with prompt using direct string approach.
+        Execute Codex CLI with prompt using exec subcommand for non-interactive mode.
 
         This method:
         1. Escapes the prompt string properly
-        2. Passes prompt directly to codex command
+        2. Uses 'codex exec' for non-interactive execution
         3. Returns parsed response
         """
         start_time = time.time()
@@ -41,8 +41,8 @@ class CodexProvider(CLIProvider):
             # Escape the prompt for shell (proper escaping for direct string approach)
             escaped_prompt = prompt.replace('"', '\\"').replace('$', '\\$').replace('`', '\\`')
 
-            # Build command with escaped prompt
-            cmd = f'codex "{escaped_prompt}"'
+            # Build command with 'exec' subcommand for non-interactive mode
+            cmd = f'codex exec "{escaped_prompt}"'
 
             # Execute command
             process = await asyncio.create_subprocess_shell(
