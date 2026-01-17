@@ -6,6 +6,8 @@ A unified REST API wrapper that integrates multiple LLM CLI tools (Claude Code, 
 
 This project uses a plugin-based provider pattern, making it easy to add new CLI tools, and provides a consistent REST API interface across all providers.
 
+![Web UI Screenshot](docs/screenshot.png)
+
 ## Prerequisites
 
 - Python 3.10+
